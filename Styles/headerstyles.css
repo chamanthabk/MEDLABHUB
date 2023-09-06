@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+}
+
+.header {
+    background-color: #04befe;
+    color: white;
+    height: 80px;
+}
+
+/* .inner_header {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+} */
+
+.logo_container {
+    display: flex;
+    align-items: center;
+}
+
+.homelogo {
+    width: 50px;
+    padding-right: 10px;
+}
+
+.title_container {
+    text-align: center;
+    flex-grow: 1; /* Allow the title to take up available space and center-align it */
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    padding: 0 20px;
+}
+
+.navigation a {
+    color: white;
+    font-size: 16px;
+}
+
+/* Add more CSS styles as needed for your specific design */
