@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/style.css">
+</head>
+
+<div id="header">
+</div>
+<div id="headerlower">
+    <p id="patientName"></p>
+</div>
+<body >
+    <div class="button-container">
+        <input type="button" value="Patient Profile" onclick="enterdoctordashboard();" class="btn solid" />
+        <input type="button" value=" Patient History" onclick="login();" class="btn solid" />
+        <input type="button" value=" Reports" onclick="login();" class="btn solid" />
+        <input type="button" value="Add New Entry" onclick="viewPatients();" class="btn solid" />
+         
+    </div>
+</body>
+
+<!-- <div id="footer"></div> -->
+<script src="/Scripts/script.js"></script>
+<script>
+    // Load the header and footer using JavaScript
+    fetch('/Pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+        
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Retrieve the 'name' query parameter
+        const patientName = getQueryParam('name');
+
+        // Display the patient's name in the existing <p> tag
+        if (patientName) {
+            const nameElement = document.getElementById('patientName');
+            nameElement.textContent = `Patient Name: ${patientName}`;
+        } else {
+            // Handle the case when the 'name' parameter is not present
+            console.error('Name parameter not found.');
+        }
+    
+</script>
+
+</html>
