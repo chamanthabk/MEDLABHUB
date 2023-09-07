@@ -18,27 +18,27 @@
           <th style="width:20%;">ID</th>
           <th style="width:30%;">Phone</th>
         </tr>
-        <tr onclick="viewPatients();">
+        <tr data-name="Tom Shally" onclick="navigateToPage('viewPatients.html', 'Tom Shally','0431231241');">
           <td>Tom Shally</td>
           <td>00988</td>
           <td>0431231241</td>
         </tr>
-        <tr data-name="Sam Roger" onclick="navigateToPage('viewPatients.html', 'Sam Roger');">
+        <tr data-name="Sam Roger" onclick="navigateToPage('viewPatients.html', 'Sam Roger','0423121212');">
           <td>Sam Roger</td>
           <td>23423</td>
           <td>0423121212</td>
         </tr>
-        <tr onclick="viewPatients();">
+        <tr data-name="Kim Donatte" onclick="navigateToPage('viewPatients.html', 'Kim Donatte','0445676545');">
           <td>Kim Donatte</td>
           <td>00912</td>
           <td>0445676545</td>
         </tr>
-        <tr onclick="viewPatients();">
+        <tr data-name="Wiley Sherbett" onclick="navigateToPage('viewPatients.html', 'Wiley Sherbett','0434218989');">
           <td>Wiley Sherbett</td>
           <td>00001</td>
           <td>0434218989</td>
         </tr>
-        <tr onclick="viewPatients();">
+        <tr data-name="Sammy Reid" onclick="navigateToPage('viewPatients.html', 'Sammy Reid','0476654534');">
           <td>Sammy Reid</td>
           <td>76123</td>
           <td>0476654534</td>
@@ -56,10 +56,12 @@
         .then(data => {
             document.getElementById('header').innerHTML = data;
         });
-        function navigateToPage(pageUrl, name) {
-        // Use window.location.href to navigate to the desired page with the name as a query parameter
-        window.location.href = `${pageUrl}?name=${encodeURIComponent(name)}`;
-    }
+       
+
+    function navigateToPage(pageUrl, name, phone) {
+    // Use window.location.href to navigate to the desired page with the name and phone as query parameters
+    window.location.href = `${pageUrl}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`;
+}
         function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");

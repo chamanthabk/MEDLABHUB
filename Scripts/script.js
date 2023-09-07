@@ -13,9 +13,22 @@ function enterdoctordashboard() {
 }
 
 
-function viewPatients() {
+function viewPatientHistory() {
     // Normally, you'd validate user credentials here.
     // But for this example, we'll skip that part.
     
-    window.location.href = "/Pages/Doctor/viewPatients.html";
+    window.location.href = "/Pages/Doctor/patientHistory.html";
+}
+
+function viewPatientReport() {
+    // Normally, you'd validate user credentials here.
+    // But for this example, we'll skip that part.
+    
+    window.location.href = "/Pages/Doctor/reports.html";
+}
+function addNewRecord() {
+    // Normally, you'd validate user credentials here.
+    // But for this example, we'll skip that part.
+    
+    window.location.href = "/Pages/Doctor/addNew.html";
 }
