@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/style.css">
+</head>
+
+<div id="header"></div>
+<div id="headerlower">
+    <p id="patientName"></p>
+</div>
+<body>
+    <div class="button-container">
+        <input id="button2" type="button" value="Patient History" class="btn solid" onclick="viewPatientHistory();"  />
+        <input id="button3" type="button" value="Reports" class="btn solid" onclick="viewPatientReport();" />
+        <input id="button4" type="button" value="Add New Entry" class="btn solid" onclick="addNewRecord();" />
+    </div>
+  <div>
+    <h2 id="pprofile">Patient History</h2>
+    <div class="form-container">
+        <form id="pid" class="pid">
+            <label for="name">Name &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; :&nbsp; <span id="patientNameSpan">${patientName || ''}</span></label><br>
+            <label for="name">Phone &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;:&nbsp; <span id="patientPhoneSpan">${patientPhone || ''}</span></label><br>
+            <label for="gender">Gender  &nbsp; &nbsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;:&nbsp; <span>Female</span></label><br>
+            <label for="dob">DOB &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;:&nbsp; <span>12/03/1990</span></label><br>
+            <label for="age">Age &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;:&nbsp; <span>32 years</span></label><br>
+            <label for="address">Address &nbsp;&nbsp; &nbsp;&nbsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; : &nbsp; <span>14A, Folkstone st, Modbury Heights.</span> </label><br>
+            <label for="insNo">Health Insurance Number  &nbsp; &nbsp;:&nbsp; <span>14784857</span></label><br>
+        </form>
+    </div>
+</div>
+    <div id="content">
+    </div>
+</body>
+
+<script src="/Scripts/script.js"></script>
+<script>
+    // Load the header and footer using JavaScript
+    fetch('/Pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    function getQueryParam2(phone) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(phone);
+    }
+
+    // Retrieve the 'name' query parameter
+    const patientName = getQueryParam('name');
+
+    // Retrieve the 'phone' query parameter
+    const patientPhone = getQueryParam('phone');
+
+    // Populate the patient's name when the page loads
+    const patientNameSpan = document.getElementById('patientNameSpan');
+    if (patientName) {
+        patientNameSpan.textContent = patientName;
+    } else {
+        // Handle the case when the 'name' parameter is not present
+        console.error('Name parameter not found.');
+    }
+
+
+    // Populate the patient's name when the page loads
+    const patientPhoneSpan = document.getElementById('patientPhoneSpan');
+    if (patientPhone) {
+        patientPhoneSpan.textContent = patientPhone;
+    } else {
+        // Handle the case when the 'name' parameter is not present
+        console.error('Name parameter not found.');
+    }
+    
+</script>
+</html>

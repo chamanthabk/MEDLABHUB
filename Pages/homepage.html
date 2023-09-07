@@ -3,35 +3,105 @@
 <head>
     <title>Main Page</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
-<div id="header"></div>
-
 <body>
-    <div class>
-        
-        <button> Doctor</button>
-        <button> System Admin</button>
-        <button> Level 1 - Lab Assistant</button>
-        <button> Level 2 - Lab Assistant</button>
+    <div id="header"></div>
+
+    <div class="button-container">
+        <input type="button" value="Doctor" onclick="enterdoctordashboard();" class="btn solid" />
+        <input type="button" value="System Admin" onclick="login();" class="btn solid" />
+        <input type="button" value=" L1 - Lab Assistant" onclick="login();" class="btn solid" />
+        <input type="button" value="L2 - Lab Assistant" onclick="login();" class="btn solid" />
     </div>
+    <div class="tiles-container">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h1>About Us </h1> 
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-users"></i>
+            </div>
+            
+          </div>
+          <div class="flip-card-back">
+            
+            <p>Welcome to MedLabHub, where we revolutionize healthcare management. Our dedicated team is committed to simplifying the process of medical report requests and laboratory tasks. With a seamless interface connecting doctors and lab assistants, we ensure efficient healthcare delivery.</p> 
+            
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h1>Contact Us</h1> 
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-phone-volume"></i>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <p>0409876543</p> 
+            <p>30 Alber St, CBD 5000 SA</p> 
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h1>Privacy Ploicy</h1> 
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+         
+          </div>
+          <div class="flip-card-back">
+            
+            <p>At MedLabHub, we prioritize the security and privacy of your medical data. Our robust Privacy Policy outlines stringent measures to safeguard your sensitive information. Rest assured, your health records are handled with the utmost care and compliance.</p> 
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h1>Terms & Conditions</h1> 
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-fan"></i>
+            </div>
+          
+          </div>
+          <div class="flip-card-back">
+            <p>By using MedLabHub, you agree to our transparent Terms & Conditions. These terms govern interactions between healthcare professionals, patients, and lab assistants, ensuring a smooth experience for all. Trust in our platform for reliable medical report management.</p> 
+          </div>
+        </div>
+      </div>
+</div>
+    <!-- <div id="footer"></div> -->
+    <script src="/Scripts/script.js"></script>
+    <script>
+        
+        // Load the header and footer using JavaScript
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+
+                     const tiles = document.querySelectorAll('.tile');
+
+tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+        tile.classList.toggle('flip');
+    });
+})
+    </script>
+
 </body>
-
-<div id="footer"></div>
-
-<script>
-    // Load the header and footer using JavaScript
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-        });
-
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        });
-</script>
-
 </html>

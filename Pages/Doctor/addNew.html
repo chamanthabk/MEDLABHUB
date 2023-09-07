@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+    <style>
+        /* Add your CSS styles here if needed */
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <h2>Medical Record</h2>
+    <form id="addRecord" class="addRecord">
+        <label for="date">Date:</label>
+        <span id="currentDate"></span>
+
+        <label for="diagnosisCode">Diagnosis Code:</label>
+        <select id="diagnosisCode" name="diagnosisCode">
+            <option value="A01.01">A01.01</option>
+            <option value="B01.01">B01.01</option>
+            <option value="C01.01">C01.01</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" rows="4" cols="50"></input>
+
+        <label for="treatments">Treatments:</label>
+        <textarea id="treatments" name="treatments" rows="4" cols="50"></textarea>
+
+        <label for="symptoms">Symptoms:</label>
+        <textarea id="symptoms" name="symptoms" rows="4" cols="50"></textarea>
+
+        <label for="specialNotes">Special Notes:</label>
+        <textarea id="specialNotes" name="specialNotes" rows="4" cols="50"></textarea>
+
+        <label for="reports">Reports:</label>
+        <select id="reports" name="reports">
+            <option value="FBC">FBC</option>
+            <option value="HBC">HBC</option>
+            <option value="XRay">XRay</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <input type="submit" value="Submit & Request">
+    </form>
+
+    <script>
+        fetch('/Pages/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+
+        // JavaScript Code to Display Current Date
+        const currentDateLabel = document.getElementById('currentDate');
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString();
+        currentDateLabel.textContent = formattedDate;
+
+        // JavaScript Code to Handle Form Submission
+        const form = document.getElementById('addRecord');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Show a popup message
+            alert('Record successfully added. Successfully sent a request to MedLabHub.');
+
+            // Redirect to another HTML page (replace 'destination.html' with the actual page URL)
+            window.location.href = 'patientHistory.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/style.css">
+</head>
+
+<div id="header"></div>
+<div id="headerlower">
+    <p id="patientName"></p>
+</div>
+<body>
+    <h2>Patient History</h2>
+    
+    <!-- Filter and Sort Container -->
+    <div class="filter-sort-container">
+       
+        
+        
+        <!-- Search Container -->
+        <div class="button-container">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+        </div>
+         <!-- Filter Container -->
+        <div class="filter-container">
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter" onchange="filterTable()">
+                <option value="">All</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+            </select>
+
+            <label for="typeFilter">Filter by Type:</label>
+            <select id="typeFilter" onchange="filterTable()">
+                <option value="">All</option>
+                <option value="Blood Report">Blood Report</option>
+                <option value="Other Type">Other Type</option>
+            </select>
+        </div>
+        <!-- Sort Container -->
+        <div class="sort-container">
+            <label for="sort">Sort by:</label>
+            <select id="sort" onchange="sortTable()">
+                <option value="default">Default</option>
+                <option value="3">Status</option>
+                <option value="1">Type</option>
+                <option value="4">Requested Date</option>
+            </select>
+        </div>
+    </div>
+
+    <table id="myTable">
+        <tr class="headertable">
+            <th style="width:10%;">Report ID</th>
+            <th style="width:10%;">Type</th>
+            <th style="width:10%;">Report Name</th>
+            <th style="width:10%;">Status</th>
+            <th style="width:15%;">Requested Date</th>
+            <th style="width:15%;">Completed Date</th>
+            <th style="width:10%;">Report</th>
+        </tr>
+        <tr>
+            <td>FBC0089</td>
+            <td>Blood Report</td>
+            <td>Full Blood Count</td>
+            <td>Completed</td>
+            <td>09/06/2023</td>
+            <td>13/06/2023</td>
+            <td><span class="report-link" data-report="example_report.pdf">example_report.pdf</span></td>
+        </tr>
+        <tr>
+            <td>HBC0007</td>
+            <td>Asthma Type</td>
+            <td>Full Blood Count</td>
+            <td>Pending</td>
+            <td>12/05/2023</td>
+            <td>N/A</td>
+            <td><span class="report-link-na">N/A</span></td>
+        </tr>
+    </table>
+    <br>
+    <!-- Details Container -->
+    <div id="detailsContainer">
+        <!-- Details will be displayed here -->
+    </div>
+    <script>
+        // Load the header and footer using JavaScript
+        fetch('/Pages/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+
+        // Add a click event listener to report links
+        const reportLinks = document.querySelectorAll('.report-link');
+        reportLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const reportUrl = this.getAttribute('data-report');
+                if (reportUrl !== 'N/A') {
+                    window.location.href = `loadreport.html?reportUrl=${encodeURIComponent(reportUrl)}`;
+                }
+            });
+        });
+
+        function myFunction() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                tr[i].style.display = "none"; // Hide all rows by default
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break; // Break out of the loop if a match is found in any field
+                        }
+                    }
+                }
+            }
+        }
+
+        function filterTable() {
+            var statusFilter = document.getElementById("statusFilter").value.toUpperCase();
+            var typeFilter = document.getElementById("typeFilter").value.toUpperCase();
+            var table = document.getElementById("myTable");
+            var tr = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < tr.length; i++) {
+                var tdStatus = tr[i].getElementsByTagName("td")[3];
+                var tdType = tr[i].getElementsByTagName("td")[1];
+
+                if ((statusFilter === "" || tdStatus.textContent.toUpperCase() === statusFilter) &&
+                    (typeFilter === "" || tdType.textContent.toUpperCase() === typeFilter)) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+
+        function sortTable() {
+            var sortMethod = document.getElementById("sort").value;
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+
+                    x = rows[i].getElementsByTagName("td")[sortMethod];
+                    y = rows[i + 1].getElementsByTagName("td")[sortMethod];
+
+                    if (sortMethod === '4') {
+                        var dateX = x.textContent.trim();
+                        var dateY = y.textContent.trim();
+                        if (dateX !== 'N/A') {
+                            dateX = new Date(dateX);
+                        }
+                        if (dateY !== 'N/A') {
+                            dateY = new Date(dateY);
+                        }
+                        if (dateX !== 'Invalid Date' && dateY !== 'Invalid Date') {
+                            x = dateX;
+                            y = dateY;
+                        } else {
+                            x = dateX === 'Invalid Date' ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+                            y = dateY === 'Invalid Date' ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+                        }
+                    } else {
+                        x = x.textContent.trim().toLowerCase();
+                        y = y.textContent.trim().toLowerCase();
+                    }
+
+                    if (x > y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
