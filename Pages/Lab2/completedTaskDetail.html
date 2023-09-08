@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Task</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/lab2.css">
+    <script src="/Scripts/lab2.js"></script>
+</head>
+<div id="header"></div>
+<!--div id="headerlower"-->  
+<body>
+  <div>
+    <h4>L2 -  <b id="lab2-name">Laboratarian</b></h4>
+    <h2>New Task</h2>
+    <!--div class="form-container"-->
+        <div class="task-details">
+            <div class="detail-row">
+                <label for="taskID">TaskID:<span id="taskID">T010</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="requestID">RequestID:<span id="requestID">R021</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="patientID">PatientID:<span id="patientID">P011</span></label>
+                
+            </div>
+            <div class="detail-row">
+                <label for="priority">Priority:
+                    <select id="priority">
+                        <option value="High" selected>High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <label for="status">Status:
+                    <select id="status">
+                        <option value="new">New</option>
+                        <option value="inprogress">In-progress</option>
+                        <option value="completed" selected>Completed</option>
+                    </select>
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <label for="type">Type:
+                    <select id="type">
+                        <option value="collection" selected>Collection</option>
+                        <option value="analysis">Analysis</option>
+                        <option value="testing">Testing</option>
+                    </select>
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                <label for="area">Area:
+                    <select id="area">
+                        <option value="Blood Test" selected>Blood Test</option>
+                        <option value="Urine Test">Urine Test</option>
+                        <option value="Urine Test">Scans</option>
+                    </select>
+                </label>
+            </div>  
+            <div class="detail-row">
+                <label for="comments">Comments:<textarea id="comments" rows="4" cols="50"></textarea></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+                <label for="specialNotes">Special Notes:<textarea id="specialNotes" rows="4" cols="50"></textarea></label>
+            </div>
+            <div class="detail-row">
+                <label for="fileUpload">Upload Files: <input type="file" id="fileUpload" multiple> </label>
+                   
+            </div>
+            
+            <button id="cancelButton" onclick="cancel();">Cancel</button>
+            <button id="saveButton" onclick="save();">Save</button>
+        </div>
+    </div>
+</div>
+    <div id="content">
+    </div>
+</body>
+
+<script src="/Scripts/lab2.js"></script>
+<script>
+    // Load the header and footer using JavaScript
+    fetch('/Pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    function getQueryParam2(phone) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(phone);
+    }
+
+    // Retrieve the 'name' query parameter
+    const patientName = getQueryParam('name');
+
+    // Retrieve the 'phone' query parameter
+    const patientPhone = getQueryParam('phone');
+
+    // Populate the patient's name when the page loads
+    const patientNameSpan = document.getElementById('patientNameSpan');
+    if (patientName) {
+        patientNameSpan.textContent = patientName;
+    } else {
+        // Handle the case when the 'name' parameter is not present
+        console.error('Name parameter not found.');
+    }
+
+
+    // Populate the patient's name when the page loads
+    const patientPhoneSpan = document.getElementById('patientPhoneSpan');
+    if (patientPhone) {
+        patientPhoneSpan.textContent = patientPhone;
+    } else {
+        // Handle the case when the 'name' parameter is not present
+        console.error('Name parameter not found.');
+    }
+    
+</script>
+</html>
