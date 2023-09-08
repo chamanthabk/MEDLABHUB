@@ -1,0 +1,187 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --white:rgb(255, 255, 255);
+  --black:rgb(0,0,0);
+  --drag-clr:rgba(0,0,0,0.8);
+  --button-clr:rgb(50, 50, 255);
+}
+
+html{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+h2{
+  color: rgb(0,0,0);
+  text-align: left;
+  font-size: xx-large;
+  padding-left: 20px;
+}
+h4{
+  color: rgb(125, 119, 119);
+  text-align: right;
+  font-size: small;
+  padding-top: 0px;
+  padding-right: 20px;
+
+}
+
+.containerDrag{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 1.5rem;
+}
+
+.inputArea{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1px;
+}
+
+.textBox{
+  font-family: 'Open Sans', sans-serif;
+  width: 20rem;
+  height: 2rem;
+  padding: 2px 2px 2px 1rem;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 20px;
+  outline: none;
+  border: 0;
+  border-radius: 5px ;
+  box-shadow: 10px 10px 15px var(--drag-clr);
+  border-radius: 49px;
+}
+
+.addBtn{
+  width: 100%;
+  width: 150px;
+  background-color: #2758ac;
+  border: none;
+  outline: none;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.addBtn:hover{
+  scale: 1.1;
+}
+
+.addBtn:active{
+  background-color: var(--drag-clr);
+  color: var(--white);
+  box-shadow: 0px 0px 0px;
+  transform: translate(3px,3px);
+}
+
+h3{
+  color: #5995fd;
+  text-align: center;
+}
+
+.section{
+  background-color: #e4e6ea;
+  width: 20rem;
+  height: 100%;
+  padding: 1rem;
+}
+
+  .swap{
+    background-color: var(--white);
+    margin: 30px 50px;
+    height: auto;
+    min-height: 2rem;
+    padding: 20px;
+    box-shadow: 3px 5px 10px 0px var(--drag-clr);
+    cursor: grab;
+  }
+
+  .is-dragging{
+    background-color: var(--drag-clr);
+    color: var(--white);
+    cursor: grabbing;
+  }
+  .task-details {
+    margin: 20px 65px 10px 65px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  .detail-row {
+    padding: 10px;
+    margin: 20px 20px 20px 20px;
+    margin-right: 10px;
+    
+  }
+
+  label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  textarea {
+    width: 500px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+
+  input[type="file"] {
+    width: 220px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    align-content: center;
+    padding:10px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-left: 50px;
+    color: rgb(6, 6, 6);
+    border: none;
+    --white:#5995fd;
+    --black:rgb(0,0,0);
+    --drag-clr:rgba(0,0,0,0.8);
+    --button-clr:rgb(50, 50, 255);
+  }
+  #saveButton {
+  background-color: #5995fd;
+  color: white;
+  border: none;
+  align-items: right;
+  }
+  #cancelButton {
+    background-color: #a0a2a7;
+    color: white;
+    border: none;
+    margin-left: 1100px;
+  }
+  
+
