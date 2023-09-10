@@ -21,31 +21,24 @@
     <div class="main">
       <div class="inputArea">
         <input type="text" class="textBox" placeholder="New Todo ..." />
-        <button type="submit" class="addBtn">ADD</button><br />
+        <button type="button" class="addBtn">ADD</button><br />
       </div>
       <div class="containerDrag">
         <div class="section" id="todo">
           <h3 class="heading">TODO</h3>
-          <p class="swap" draggable="true">Kanban board</p>
+          <!-- Example existing swap item -->
+          <p class="swap" draggable="true" id="item1"  data-status="new">FBC<span class="status">-new</span></p>
         </div>
-        <div class="section">
+        <div class="section" id="doing">
           <h3 class="heading">Doing</h3>
-          <p class="swap" draggable="true">On going</p>
+          <p class="swap" draggable="true" id="item1"  data-status="new">HBC<span class="status">-inprogress</span></p>
         </div>
-        <div class="section">
+        <div class="section" id="done">
           <h3 class="heading">Done</h3>
-          <p class="swap" draggable="true">Finished</p>
+          <p class="swap" draggable="true" id="item1"  data-status="new">X-Ray<span class="status">-finished</span></p>
         </div>
       </div>
     </div>
     <script src="./script.js"></script>
   </body>
-
-  <script>
-    fetch('/Pages/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-        });
-  </script>
 </html>
