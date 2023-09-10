@@ -1,0 +1,291 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --white:rgb(255, 255, 255);
+  --black:rgb(0,0,0);
+  --drag-clr:rgba(0,0,0,0.8);
+  --button-clr:rgb(50, 50, 255);
+}
+
+html{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+h2{
+  color: rgb(0,0,0);
+  text-align: left;
+  font-size: xx-large;
+  padding-left: 20px;
+}
+h4{
+  color: rgb(125, 119, 119);
+  text-align: right;
+  font-size: small;
+  padding-top: 0px;
+  padding-right: 20px;
+
+}
+
+.containerDrag{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 1.5rem;
+}
+
+.inputArea{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1px;
+}
+
+.textBox{
+  font-family: 'Open Sans', sans-serif;
+  width: 20rem;
+  height: 2rem;
+  padding: 2px 2px 2px 1rem;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 20px;
+  outline: none;
+  border: 0;
+  border-radius: 5px ;
+  box-shadow: 10px 10px 15px var(--drag-clr);
+  border-radius: 49px;
+}
+
+.addBtn{
+  width: 100%;
+  width: 150px;
+  background-color: #2758ac;
+  border: none;
+  outline: none;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.addBtn:hover{
+  scale: 1.1;
+}
+
+.addBtn:active{
+  background-color: var(--drag-clr);
+  color: var(--white);
+  box-shadow: 0px 0px 0px;
+  transform: translate(3px,3px);
+}
+
+h3{
+  color: #5995fd;
+  text-align: center;
+}
+
+.section{
+  background-color: #e4e6ea;
+  width: 20rem;
+  height: 100%;
+  padding: 1rem;
+}
+
+  .swap{
+    background-color: var(--white);
+    margin: 30px 50px;
+    height: auto;
+    min-height: 2rem;
+    padding: 20px;
+    box-shadow: 3px 5px 10px 0px var(--drag-clr);
+    cursor: grab;
+  }
+
+  .is-dragging{
+    background-color: var(--drag-clr);
+    color: var(--white);
+    cursor: grabbing;
+  }
+  .task-details {
+    margin: 20px 65px 10px 65px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  .detail-row {
+    padding: 10px;
+    margin: 20px 20px 20px 20px;
+    margin-right: 10px;
+    
+  }
+
+  label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  textarea {
+    width: 500px;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+
+  input[type="file"] {
+    width: 220px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    align-content: center;
+    padding:10px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-left: 50px;
+    color: rgb(6, 6, 6);
+    border: none;
+    --white:#5995fd;
+    --black:rgb(0,0,0);
+    --drag-clr:rgba(0,0,0,0.8);
+    --button-clr:rgb(50, 50, 255);
+  }
+  #saveButton {
+  background-color: #1d68c3;
+  color: white;
+  border: none;
+  align-items: right;
+  }
+  #cancelButton {
+    background-color: #1d68c3;
+    color: rgb(255, 255, 255);
+    border: none;
+    margin-left: 1100px;
+  }
+  .containerButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh; /* This makes sure the buttons are centered vertically within a viewport height */
+    gap: 20px; /* Space between buttons */
+  }
+  
+  .bigBtn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .bigBtn:hover {
+    background-color: #2980b9;
+  }
+  .bigBtn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.teamContainer {
+    display: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.groupNameList {
+    list-style: none;
+    padding: 0;
+}
+
+.groupNameList li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+.individualInput {
+  padding: 10px;
+  margin: 5px 0;
+  width: 80%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.individualsList {
+  list-style: none;
+  padding: 0;
+}
+
+.individualsList li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+
+/* Centering the form and table */
+.containerCentered {
+    width: 80%; /* Adjust this as per your need */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Gap between the form and table */
+}
+
+.createTeamForm, table {
+    width: 100%; /* Taking full width of its container */
+    margin-bottom: 20px; /* Some spacing */
+}
+
+/* Existing Styles... */
+
+/* Adjustments for the form to be more consistent */
+.createTeamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.createTeamForm input, .createTeamForm button, .createTeamForm ul {
+    align-self: center;
+    width: 10%; /* Adjust this value if necessary */
+}
+
+  
+  
+  
+
