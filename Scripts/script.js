@@ -15,7 +15,7 @@ function enterlab2dashboard() {
     // Normally, you'd validate user credentials here.
     // But for this example, we'll skip that part.
     
-    window.location.href = "/Pages/Lab2/lab2dashboard.html";
+    window.location.href = "/Pages/Lab2/labo2.html";
 }
 function enterlab1dashboard() {
     // Normally, you'd validate user credentials here.
