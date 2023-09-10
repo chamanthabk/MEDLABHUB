@@ -19,7 +19,7 @@ html{
   font-size: 18px;
 }
 h2{
-  color: rgb(0,0,0);
+  color: #2758ac;
   text-align: left;
   font-size: xx-large;
   padding-left: 20px;
@@ -59,7 +59,7 @@ h4{
   border: 0;
   border-radius: 5px ;
   box-shadow: 10px 10px 15px var(--drag-clr);
-  border-radius: 49px;
+  border-radius: 4px;
 }
 
 .addBtn{
@@ -183,5 +183,70 @@ h3{
     border: none;
     margin-left: 1100px;
   }
+
+
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.kanban-board {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #edeff4;
+    margin: 10px;
+    box-shadow: 3px 5px 10px 0px var(--drag-clr);
+    border-radius: 8px;
+}
+
+.task {
+    padding: 8px;
+    margin: 4px;
+    background-color: #5995fd;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    min-height: 1rem;
+    box-shadow: 1px 1px 1px 1px var(--drag-clr);
+    border-radius: 8px;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
   
+
+/*File upload window*/
+
+.upload-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #2758ac;
+}
+
+.drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#fileInput {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+li {
+  margin: 5px 0;
+}
+
 

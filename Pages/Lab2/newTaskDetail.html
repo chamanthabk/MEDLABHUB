@@ -3,7 +3,7 @@
 <head>
     <title>New Task</title>
     <link rel="stylesheet" type="text/css" href="/Styles/lab2.css">
-    <script src="/Scripts/lab2.js"></script>
+    <script src="/Scripts/l2.js"></script>
 </head>
 <div id="header"></div>
 <!--div id="headerlower"-->  
@@ -29,11 +29,12 @@
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
                 <label for="status">Status:
-                    <select id="status">
+                    <select id="newStatus">
                         <option value="new" selected>New</option>
                         <option value="inprogress">In-progress</option>
                         <option value="completed">Completed</option>
                     </select>
+                    
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
                 <label for="type">Type:
@@ -53,9 +54,9 @@
                 </label>
             </div>  
             <div class="detail-row">
-                <label for="comments">Comments:<textarea id="comments" rows="4" cols="50"></textarea></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="comments">Comments:<textarea id="comments" rows="4" cols="50">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </textarea></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             
-                <label for="specialNotes">Special Notes:<textarea id="specialNotes" rows="4" cols="50"></textarea></label>
+                <label for="specialNotes">Special Notes:<textarea id="specialNotes" rows="4" cols="50">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </textarea></label>
             </div>
             <div class="detail-row">
                 <label for="fileUpload">Upload Files: <input type="file" id="fileUpload" multiple> </label>
@@ -63,7 +64,7 @@
             </div>
             
             <button id="cancelButton" onclick="cancel();">Cancel</button>
-            <button id="saveButton" onclick="save();">Save</button>
+            <button id="saveButton" onclick="save();" onclick="updateStatus()">Save</button>
         </div>
     </div>
 </div>
@@ -71,7 +72,7 @@
     </div>
 </body>
 
-<script src="/Scripts/lab2.js"></script>
+<script src="/Scripts/l2.js"></script>
 <script>
     // Load the header and footer using JavaScript
     fetch('/Pages/header.html')
@@ -114,6 +115,23 @@
         // Handle the case when the 'name' parameter is not present
         console.error('Name parameter not found.');
     }
+
+     // Get task ID and status from URL parameters
+     const urlParams = new URLSearchParams(window.location.search);
+        const taskId = urlParams.get("id");
+        const taskStatus = urlParams.get("status");
+
+        // Display task ID and status on the page
+        document.getElementById("taskId").textContent = taskId;
+        document.getElementById("taskStatus").textContent = taskStatus;
+
+        // Function to update task status
+        function updateStatus() {
+            const newStatus = document.getElementById("newStatus").value;
+            
+            // Navigate to lab2 dashboard page
+            window.location.href = "/Pages/Lab2/labo.html";
+        }
     
 </script>
 </html>
