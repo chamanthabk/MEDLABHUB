@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/admin.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="headerlower">
+        <p id="patientName">John Lavy</p>
+    </div>
+
+
+    <div class="container1" style="display: flex;">
+
+
+        <div class="column1" style="width: 80%;">
+
+            <!-- Search Bar -->
+            <div class="search-bar1">
+                <input type="text" id="user-search" class="search-input" placeholder="Search by User ID">
+            </div>
+            <!-- User Table -->
+            <table class="user-table1">
+                <thead>
+                    <tr class="headtable" id="headtable">
+                        <th class="headtable" id="headtable">Type</th>
+                        <th class="headtable" id="headtable">User ID</th>
+                        <th class="headtable" id="headtable">Level Name</th>
+                        <th class="headtable" id="headtable">Name</th>
+                    </tr>
+                    <tr>
+                        <th>Doctor</th>
+                        <th>DL1001</th>
+                        <th>Level 1</th>
+                        <th>Sam Rogger</th>
+                    </tr>
+                    <tr>
+                        <th>Lab Assistant</th>
+                        <th>LL1001</th>
+                        <th>Level 1</th>
+                        <th>Smith Walter</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body1">
+                    <!-- User data will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="column2" style="width: 20%;">
+
+            <!-- Filter and Sort Options -->
+            <div class="filter-sort-container1">
+                <!-- Filter Options -->
+                <div class="filter-options1">
+
+                    <div class="level-filter1">
+                        <label for="level-filter1">Filter by Type:</label>
+                        <select id="level-filter1" class="filter-select1">
+                            <option value="">All</option>
+                            <option value="level1">Doctor</option>
+                            <option value="level2">Laboratory</option>
+                        </select>
+                    </div>
+                    <div class="level-filter1">
+                        <label for="level-filter1">Filter by Level:</label>
+                        <select id="level-filter1" class="filter-select1">
+                            <option value="">All</option>
+                            <option value="level1">Level 1</option>
+                            <option value="level2">Level 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sort Options -->
+                <div class="sort-options1">
+                    <label for="sort-by1">Sort by:</label>
+                    <select id="sort-by1" class="sort-select1">
+                        <option value="type">Type</option>
+                        <option value="id">User ID</option>
+                        <option value="access-level">Level Name</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Apply Filters Button -->
+            <button type="button" id="apply-filters-btn1" class="btn1">Apply Filters</button>
+        </div>
+</div>
+
+
+    <div id="footer"></div>
+
+    <script src="/Scripts/viewusers.js"></script>
+    <script>
+        fetch('/Pages/header.html')
+           .then(response => response.text())
+           .then(data => {
+               document.getElementById('header').innerHTML = data;
+           });
+    </script>
+</body>
+
+</html>

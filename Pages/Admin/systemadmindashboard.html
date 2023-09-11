@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Admin Dashboard</title>
+</head>
+
+<body>
+   
+
+    <div id="header"></div>
+    <div id="headerlower">
+        <p id="patientName">John Lavy</p>
+    </div>
+
+    <div class="button-container">
+        <input id="button2" type="button" value="Add User" class="btn solid" onclick="adduser();"  />
+        <input id="button3" type="button" value="View User" class="btn solid" onclick="viewuser();" />
+        <input id="button4" type="button" value="Accesss Level" class="btn solid" onclick="addNewRecord();" />
+    </div>
+
+    <!-- <div class="container">
+        <div class="buttons">
+            <button id="btn-add" class="btn">Add User</button>
+            <button id="btn-view" class="btn">View User</button>
+            <button id="btn-user" class="btn">Accesss Level</button>
+        </div>
+    </div> -->
+
+    <div id="footer"></div>
+    
+<script src="/Scripts/systemadmindashboard.js"></script>
+<script>
+    fetch('/Pages/header.html')
+       .then(response => response.text())
+       .then(data => {
+           document.getElementById('header').innerHTML = data;
+       });
+</script>
+</body>
+
+</html>
