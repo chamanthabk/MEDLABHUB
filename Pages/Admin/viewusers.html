@@ -19,10 +19,10 @@
 
         <div class="column1" style="width: 80%;">
 
-            <!-- Search Bar -->
+            <!-- Search Bar
             <div class="search-bar1">
                 <input type="text" id="user-search" class="search-input" placeholder="Search by User ID">
-            </div>
+            </div> -->
             <!-- User Table -->
             <table class="user-table1">
                 <thead>
@@ -32,13 +32,19 @@
                         <th class="headtable" id="headtable">Level Name</th>
                         <th class="headtable" id="headtable">Name</th>
                     </tr>
-                    <tr>
+                    <tr data-id="DL1001" onclick="navigateToPage('edituser.html');">
                         <th>Doctor</th>
                         <th>DL1001</th>
                         <th>Level 1</th>
                         <th>Sam Rogger</th>
                     </tr>
-                    <tr>
+                    <tr data-id="DL1001" onclick="navigateToPage('edituser.html');">
+                        <th>Doctor</th>
+                        <th>DL1034</th>
+                        <th>Level 2</th>
+                        <th>Anne Marry</th>
+                    </tr>
+                    <tr data-id="LL1001" onclick="navigateToPage('edituser.html');">
                         <th>Lab Assistant</th>
                         <th>LL1001</th>
                         <th>Level 1</th>
@@ -102,6 +108,13 @@
            .then(data => {
                document.getElementById('header').innerHTML = data;
            });
+
+           function navigateToPage(pageUrl) {
+    // Use window.location.href to navigate to the desired page with the name and phone as query parameters
+    window.location.href = `${pageUrl}`;
+  }
+
+
     </script>
 </body>
 
