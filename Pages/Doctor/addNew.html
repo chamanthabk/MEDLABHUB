@@ -22,19 +22,20 @@
         </select>
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" rows="4" cols="50"></input>
+        <input type="text" id="description" name="description" rows="4" cols="50" required></input>
 
         <label for="treatments">Treatments:</label>
-        <textarea id="treatments" name="treatments" rows="4" cols="50"></textarea>
+        <textarea id="treatments" name="treatments" rows="4" cols="50" required></textarea>
 
         <label for="symptoms">Symptoms:</label>
-        <textarea id="symptoms" name="symptoms" rows="4" cols="50"></textarea>
+        <textarea id="symptoms" name="symptoms" rows="4" cols="50" required></textarea>
 
         <label for="specialNotes">Special Notes:</label>
         <textarea id="specialNotes" name="specialNotes" rows="4" cols="50"></textarea>
 
         <label for="reports">Reports:</label>
         <select id="reports" name="reports">
+            <option value="FBC">N/A</option>
             <option value="FBC">FBC</option>
             <option value="HBC">HBC</option>
             <option value="XRay">XRay</option>
@@ -43,13 +44,16 @@
 
         <input type="submit" value="Submit & Request">
     </form>
-
+    <script src="/Scripts/doctor.js">
+    </script>
     <script>
         fetch('/Pages/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header').innerHTML = data;
             });
+
+            
 
         // JavaScript Code to Display Current Date
         const currentDateLabel = document.getElementById('currentDate');

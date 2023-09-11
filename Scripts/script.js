@@ -15,8 +15,23 @@ function enterlab2dashboard() {
     // Normally, you'd validate user credentials here.
     // But for this example, we'll skip that part.
     
-    window.location.href = "/Pages/Lab2/lab2dashboard.html";
+    window.location.href = "/Pages/Lab2/labo2.html";
 }
+function enteradmindashboard() {
+    // Normally, you'd validate user credentials here.
+    // But for this example, we'll skip that part.
+    
+    window.location.href = "/Pages/Admin/systemadmindashboard.html";
+}
+
+function enterlab1dashboard() {
+    // Normally, you'd validate user credentials here.
+    // But for this example, we'll skip that part.
+    
+    window.location.href = "/Pages/Lab1/la1dashboard2.html";
+}
+
+
 
 
 function viewPatientHistory() {

@@ -19,7 +19,7 @@ html{
   font-size: 18px;
 }
 h2{
-  color: #2758ac;
+  color: rgb(0,0,0);
   text-align: left;
   font-size: xx-large;
   padding-left: 20px;
@@ -59,7 +59,7 @@ h4{
   border: 0;
   border-radius: 5px ;
   box-shadow: 10px 10px 15px var(--drag-clr);
-  border-radius: 4px;
+  border-radius: 49px;
 }
 
 .addBtn{
@@ -145,7 +145,7 @@ h3{
   textarea {
     width: 500px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 4px;
     resize: vertical;
   }
@@ -172,81 +172,120 @@ h3{
     --button-clr:rgb(50, 50, 255);
   }
   #saveButton {
-  background-color: #5995fd;
+  background-color: #1d68c3;
   color: white;
   border: none;
   align-items: right;
   }
   #cancelButton {
-    background-color: #a0a2a7;
-    color: white;
+    background-color: #1d68c3;
+    color: rgb(255, 255, 255);
     border: none;
     margin-left: 1100px;
   }
-
-
-  body {
-    font-family: Arial, sans-serif;
-}
-
-.kanban-board {
+  .containerButtons {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh; /* This makes sure the buttons are centered vertically within a viewport height */
+    gap: 20px; /* Space between buttons */
+  }
+  
+  .bigBtn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .bigBtn:hover {
+    background-color: #2980b9;
+  }
+  .bigBtn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
 }
 
-.column {
-    width: 30%;
+.teamContainer {
+    display: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.groupNameList {
+    list-style: none;
+    padding: 0;
+}
+
+.groupNameList li {
     padding: 10px;
     border: 1px solid #ccc;
-    background-color: #edeff4;
-    margin: 10px;
-    box-shadow: 3px 5px 10px 0px var(--drag-clr);
-    border-radius: 8px;
+    margin: 5px 0;
+}
+.individualInput {
+  padding: 10px;
+  margin: 5px 0;
+  width: 80%;
+  display: block;
+  box-sizing: border-box;
 }
 
-.task {
-    padding: 8px;
-    margin: 4px;
-    background-color: #5995fd;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    min-height: 1rem;
-    box-shadow: 1px 1px 1px 1px var(--drag-clr);
-    border-radius: 8px;
-    line-height: 50px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-}
-  
-
-/*File upload window*/
-
-.upload-container {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #2758ac;
-}
-
-.drop-area {
-  border: 2px dashed #ccc;
-  padding: 20px;
-  cursor: pointer;
-  text-align: center;
-}
-
-#fileInput {
-  display: none;
-}
-
-ul {
+.individualsList {
   list-style: none;
   padding: 0;
-  text-align: left;
 }
 
-li {
+.individualsList li {
+  padding: 10px;
+  border: 1px solid #ccc;
   margin: 5px 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+
+
+/* Centering the form and table */
+.containerCentered {
+    width: 80%; /* Adjust this as per your need */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Gap between the form and table */
+}
+
+.createTeamForm, table {
+    width: 100%; /* Taking full width of its container */
+    margin-bottom: 20px; /* Some spacing */
+}
+
+/* Existing Styles... */
+
+/* Adjustments for the form to be more consistent */
+.createTeamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.createTeamForm input, .createTeamForm button, .createTeamForm ul {
+    align-self: center;
+    width: 10%; /* Adjust this value if necessary */
+}
+
+  
+  
+  
 

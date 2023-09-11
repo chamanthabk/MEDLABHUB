@@ -11,6 +11,14 @@
     </div>
 </body>
 <script>
+
+     // Load the header using JavaScript
+     fetch('/Pages/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header').innerHTML = data;
+        });
+
     // Define the getQueryParam function to retrieve query parameters
     function getQueryParam(name) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -20,13 +28,7 @@
     // Retrieve the 'reportUrl' query parameter
     const reportUrl = getQueryParam('reportUrl');
 
-    // Load the header using JavaScript
-    fetch('/Pages/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-        });
-
+   
     // Set the source of the iframe to display the PDF report
     const pdfFrame = document.getElementById('pdfFrame');
     pdfFrame.src = reportUrl;
