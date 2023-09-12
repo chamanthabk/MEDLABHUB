@@ -99,126 +99,114 @@ h3{
   height: 100%;
   padding: 1rem;
 }
-
-  .swap{
-    background-color: var(--white);
-    margin: 30px 50px;
-    height: auto;
-    min-height: 2rem;
-    padding: 20px;
-    box-shadow: 3px 5px 10px 0px var(--drag-clr);
-    cursor: grab;
-  }
-
-  .is-dragging{
-    background-color: var(--drag-clr);
-    color: var(--white);
-    cursor: grabbing;
-  }
-  .task-details {
-    margin: 20px 65px 10px 65px;
-    padding: 10px 10px 10px 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-  }
-
-  .detail-row {
-    padding: 10px;
-    margin: 20px 20px 20px 20px;
-    margin-right: 10px;
-    
-  }
-
-  label {
-    display: inline-block;
-    width: 150px;
-    font-weight: bold;
-  }
-
-  select {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  textarea {
-    width: 500px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-
-
-  input[type="file"] {
-    width: 220px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  button {
-    align-content: center;
-    padding:10px;
-    font-size: 16px;
-    margin-left: 10px;
-    cursor: pointer;
-    margin-left: 50px;
-    color: rgb(6, 6, 6);
-    border: none;
-    --white:#5995fd;
-    --black:rgb(0,0,0);
-    --drag-clr:rgba(0,0,0,0.8);
-    --button-clr:rgb(50, 50, 255);
-  }
-  #saveButton {
+.is-dragging{
+  background-color: var(--drag-clr);
+  color: var(--white);
+  cursor: grabbing;
+}
+  
+.task {
+  padding: 8px;
+  margin: 4px;
   background-color: #5995fd;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  min-height: 1rem;
+  box-shadow: 1px 1px 1px 1px var(--drag-clr);
+  border-radius: 8px;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+.task-details {
+  margin: 20px 65px 10px 65px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.detail-row {
+  padding: 10px;
+  margin: 20px 20px 20px 20px;
+  margin-right: 10px;
+  
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+textarea {
+  width: 500px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+input[type="file"] {
+  width: 220px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  align-content: center;
+  padding:10px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-left: 50px;
+  color: rgb(6, 6, 6);
+  border: none;
+  --white:#5995fd;
+  --black:rgb(0,0,0);
+  --drag-clr:rgba(0,0,0,0.8);
+  --button-clr:rgb(50, 50, 255);
+}
+#saveButton {
+background-color: #5995fd;
+color: white;
+border: none;
+align-items: right;
+}
+#cancelButton {
+  background-color: #a0a2a7;
   color: white;
   border: none;
-  align-items: right;
-  }
-  #cancelButton {
-    background-color: #a0a2a7;
-    color: white;
-    border: none;
-    margin-left: 1100px;
-  }
+  margin-left: 1100px;
+}
 
 
-  body {
-    font-family: Arial, sans-serif;
+body {
+  font-family: Arial, sans-serif;
 }
 
 .kanban-board {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .column {
-    width: 30%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #edeff4;
-    margin: 10px;
-    box-shadow: 3px 5px 10px 0px var(--drag-clr);
-    border-radius: 8px;
-}
-
-.task {
-    padding: 8px;
-    margin: 4px;
-    background-color: #5995fd;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    min-height: 1rem;
-    box-shadow: 1px 1px 1px 1px var(--drag-clr);
-    border-radius: 8px;
-    line-height: 50px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-}
-  
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #edeff4;
+  margin: 10px;
+  box-shadow: 3px 5px 10px 0px var(--drag-clr);
+  border-radius: 8px;
+}  
 
 /*File upload window*/
 
