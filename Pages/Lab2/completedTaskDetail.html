@@ -5,13 +5,11 @@
     <link rel="stylesheet" type="text/css" href="/Styles/lab2.css">
     <script src="/Scripts/l2.js"></script>
 </head>
-<div id="header"></div>
-<!--div id="headerlower"-->  
+<div id="header"></div> 
 <body>
   <div>
     <h4>L2 -  <b id="lab2-name">Laboratarian</b></h4>
     <h2>Completed Task</h2>
-    <!--div class="form-container"-->
         <div class="task-details">
             <div class="detail-row">
                 <label for="taskID">TaskID:<span id="taskID">T008</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -80,58 +78,6 @@
         .then(data => {
             document.getElementById('header').innerHTML = data;
         });
-
-    function getQueryParam(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-
-    function getQueryParam2(phone) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(phone);
-    }
-
-    // Retrieve the 'name' query parameter
-    const patientName = getQueryParam('name');
-
-    // Retrieve the 'phone' query parameter
-    const patientPhone = getQueryParam('phone');
-
-    // Populate the patient's name when the page loads
-    const patientNameSpan = document.getElementById('patientNameSpan');
-    if (patientName) {
-        patientNameSpan.textContent = patientName;
-    } else {
-        // Handle the case when the 'name' parameter is not present
-        console.error('Name parameter not found.');
-    }
-
-
-    // Populate the patient's name when the page loads
-    const patientPhoneSpan = document.getElementById('patientPhoneSpan');
-    if (patientPhone) {
-        patientPhoneSpan.textContent = patientPhone;
-    } else {
-        // Handle the case when the 'name' parameter is not present
-        console.error('Name parameter not found.');
-    }
-
-     // Get task ID and status from URL parameters
-     const urlParams = new URLSearchParams(window.location.search);
-        const taskId = urlParams.get("id");
-        const taskStatus = urlParams.get("status");
-
-        // Display task ID and status on the page
-        document.getElementById("taskId").textContent = taskId;
-        document.getElementById("taskStatus").textContent = taskStatus;
-
-        // Function to update task status
-        function updateStatus() {
-            const newStatus = document.getElementById("newStatus").value;
-            
-            // Navigate to lab2 dashboard page
-            window.location.href = "/Pages/Lab2/labo.html";
-        }
     
 </script>
 </html>
