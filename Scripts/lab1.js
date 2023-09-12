@@ -5,7 +5,7 @@ const droppableElements = document.querySelectorAll(".section");
 const draggableElements = document.querySelectorAll(".swap");
 const todoSection = document.getElementById("todo");
 const addButton = document.querySelector(".addBtn");
-
+loadSavedData();
 
 //EventListener to create new Draggables
 
@@ -68,52 +68,48 @@ function generateNewTestID() {
 }
 
 function save() {
-    const newTestID = generateNewTestID(); // Generating new TestID
-    const taskID = document.getElementById('taskID').textContent;
-    const requestID = document.getElementById('requestID').textContent;
-    const patientID = document.getElementById('patientID').textContent;
-    const statusDropdown = document.getElementById('status'); 
-    const type = document.getElementById('type').value;
-    const area = document.getElementById('area').value;
-    const group = document.getElementById('group').value;
-    const priority = document.getElementById('priority').value;
-
-    // Updating text based on checkbox selection
-    const checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
-    let checkboxValues = {};
-    let selectedCheckboxText = "";
-    checkboxes.forEach(checkbox => {
-        checkboxValues[checkbox.id] = checkbox.checked;
-        if(checkbox.checked) {
-            selectedCheckboxText += "Sample " + checkbox.nextElementSibling.textContent + " "; 
-            // assuming the label/text for the checkbox comes after the checkbox itself.
-        }
-    });
-
-    if (selectedCheckboxText !== "") {
-        // This will show an alert with the selected checkboxes prefixed by "Sample".
-        // You might want to handle this differently based on your requirements.
-        alert(selectedCheckboxText);
-    }
-
-    // ... rest of the save function ...
-
-    // Save data to local storage
-    localStorage.setItem('taskID', taskID);
-    localStorage.setItem('requestID', requestID);
-    localStorage.setItem('patientID', patientID);
-    localStorage.setItem('status', 'inprogress');
-    localStorage.setItem('type', type);
-    localStorage.setItem('area', area);
-    localStorage.setItem('group', group);
-    localStorage.setItem('priority', priority);
-    localStorage.setItem('checkboxValues', JSON.stringify(checkboxValues));
-
-    // Update the status dropdown to "In-progress"
-    statusDropdown.value = 'inprogress'; 
-
-    alert('Details saved successfully!');
-    window.location.href = "/Pages/Lab1/viewrequest.html";
+  // Get values from form fields
+  const status = document.getElementById("status").value;
+  const type = document.getElementById("type").value;
+  const area = document.getElementById("area").value;
+  const group = document.getElementById("group").value;
+  const priority = document.getElementById("priority").value;
+  const checkboxes = {
+      collection: document.getElementById("box1").checked,
+      analyze: document.getElementById("box2").checked,
+      test: document.getElementById("box3").checked,
+      finalized: document.getElementById("box4").checked
+  };
+  
+  // Save data to localStorage
+  localStorage.setItem('status', status);
+  localStorage.setItem('type', type);
+  localStorage.setItem('area', area);
+  localStorage.setItem('group', group);
+  localStorage.setItem('priority', priority);
+  localStorage.setItem('checkboxes', JSON.stringify(checkboxes));
+  
+  alert("Data saved!");
+}
+function loadSavedData() {
+  // Load data from localStorage
+  const status = localStorage.getItem('status');
+  const type = localStorage.getItem('type');
+  const area = localStorage.getItem('area');
+  const group = localStorage.getItem('group');
+  const priority = localStorage.getItem('priority');
+  const checkboxes = JSON.parse(localStorage.getItem('checkboxes')) || {};
+  
+  // Populate form fields with saved data
+  if (status) document.getElementById("status").value = status;
+  if (type) document.getElementById("type").value = type;
+  if (area) document.getElementById("area").value = area;
+  if (group) document.getElementById("group").value = group;
+  if (priority) document.getElementById("priority").value = priority;
+  if (checkboxes.collection !== undefined) document.getElementById("box1").checked = checkboxes.collection;
+  if (checkboxes.analyze !== undefined) document.getElementById("box2").checked = checkboxes.analyze;
+  if (checkboxes.test !== undefined) document.getElementById("box3").checked = checkboxes.test;
+  if (checkboxes.finalized !== undefined) document.getElementById("box4").checked = checkboxes.finalized;
 }
 
 
@@ -150,15 +146,15 @@ function viewRequests() {
 
 
 function addTeamMember() {
-    let memberName = document.getElementById('member-name').value;
-    if (memberName.trim() !== "") {
-        let li = document.createElement('li');
-        li.innerText = memberName;
-        document.getElementById('members-list').appendChild(li);
-        document.getElementById('member-name').value = '';
-    } else {
-        alert('Please enter a valid member name.');
-    }
+  let memberDropdown = document.getElementById('members-dropdown');
+  let memberName = memberDropdown.options[memberDropdown.selectedIndex].value;
+  if (memberName.trim() !== "") {
+      let li = document.createElement('li');
+      li.innerText = memberName;
+      document.getElementById('members-list').appendChild(li);
+  } else {
+      alert('Please select a valid member.');
+  }
 }
 
 function createTeam() {
